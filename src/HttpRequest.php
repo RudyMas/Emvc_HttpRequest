@@ -1,6 +1,6 @@
 <?php
 
-namespace RudyMas\Emvc_HttpRequest;
+namespace EasyMVC\HttpRequest;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
@@ -12,9 +12,9 @@ use GuzzleHttp\Psr7\Response;
  * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     1.3.0
- * @package     Library
+ * @package     EasyMVC\HttpRequest
  */
-class Emvc_HttpRequest
+class HttpRequest
 {
     private $httpClient;
     private $baseUri = '';
@@ -106,4 +106,4 @@ class Emvc_HttpRequest
     }
 }
 
-/** End of File: Emvc_HttpRequest.php **/
+/** End of File: HttpRequest.php **/
