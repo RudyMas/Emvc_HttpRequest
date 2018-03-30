@@ -1,7 +1,7 @@
 {
   "name": "easymvc/httprequest",
   "description": "PHP Class HttpRequest for the EasyMVC Framework",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "type": "library",
   "license": "GPL-3.0",
   "authors": [
@@ -18,6 +18,9 @@
     "guzzlehttp/guzzle": "*"
   },
   "autoload": {
+    "classmap": [
+      "src/"
+    ],
     "psr-4": {
       "EasyMVC\\HttpRequest\\": "src/"
     }

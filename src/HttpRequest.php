@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Response;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.3.0
+ * @version     1.4.0
  * @package     EasyMVC\HttpRequest
  */
 class HttpRequest
@@ -68,6 +68,23 @@ class HttpRequest
     public function put(string $url, string $body, string $username = null, string $password = null): Response
     {
         $response = $this->httpClient->request('PUT', $this->baseUri . $url, [
+            'auth' => [$username, $password],
+            'headers' => ['content-type' => 'application/json', 'accept' => 'application/json'],
+            'body' => $body
+        ]);
+        return $response;
+    }
+
+    /**
+     * @param string $url
+     * @param string $body
+     * @param string|null $username
+     * @param string|null $password
+     * @return Response
+     */
+    public function patch(string $url, string $body, string $username = null, string $password = null): Response
+    {
+        $response = $this->httpClient->request('PATH', $this->baseUri . $url, [
             'auth' => [$username, $password],
             'headers' => ['content-type' => 'application/json', 'accept' => 'application/json'],
             'body' => $body
