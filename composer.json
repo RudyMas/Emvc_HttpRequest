@@ -1,9 +1,8 @@
 {
   "name": "easymvc/httprequest",
   "description": "PHP Class HttpRequest for the EasyMVC Framework",
-  "version": "1.4.0",
   "type": "library",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Rudy Mas",
@@ -15,7 +14,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">= 7.1",
-    "guzzlehttp/guzzle": "*"
+    "guzzlehttp/guzzle": "^6"
   },
   "autoload": {
     "classmap": [

@@ -12,7 +12,7 @@ use GuzzleHttp\Psr7\Response;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.4.1.17
+ * @version     1.5.0.18
  * @package     EasyMVC\HttpRequest
  */
 class HttpRequest
@@ -52,15 +52,16 @@ class HttpRequest
      * @param string $body
      * @param string|null $username
      * @param string|null $password
+     * @param string $contentType
      * @return Response
      * @throws GuzzleException
      */
-    public function post(string $url, string $body, string $username = null, string $password = null): Response
+    public function post(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
     {
         try {
             $response = $this->httpClient->request('POST', $this->baseUri . $url, [
                 'auth' => [$username, $password],
-                'headers' => ['Content-Type' => 'application/json', 'accept' => 'application/json'],
+                'headers' => ['Content-Type' => $contentType, 'accept' => $contentType],
                 'body' => $body
             ]);
         } catch (GuzzleException $e) {
@@ -74,15 +75,16 @@ class HttpRequest
      * @param string $body
      * @param string|null $username
      * @param string|null $password
+     * @param string $contentType
      * @return Response
      * @throws GuzzleException
      */
-    public function put(string $url, string $body, string $username = null, string $password = null): Response
+    public function put(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
     {
         try {
             $response = $this->httpClient->request('PUT', $this->baseUri . $url, [
                 'auth' => [$username, $password],
-                'headers' => ['content-type' => 'application/json', 'accept' => 'application/json'],
+                'headers' => ['content-type' => $contentType, 'accept' => $contentType],
                 'body' => $body
             ]);
         } catch (GuzzleException $e) {
@@ -96,15 +98,16 @@ class HttpRequest
      * @param string $body
      * @param string|null $username
      * @param string|null $password
+     * @param string $contentType
      * @return Response
      * @throws GuzzleException
      */
-    public function patch(string $url, string $body, string $username = null, string $password = null): Response
+    public function patch(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
     {
         try {
             $response = $this->httpClient->request('PATH', $this->baseUri . $url, [
                 'auth' => [$username, $password],
-                'headers' => ['content-type' => 'application/json', 'accept' => 'application/json'],
+                'headers' => ['content-type' => $contentType, 'accept' => $contentType],
                 'body' => $body
             ]);
         } catch (GuzzleException $e) {
@@ -143,7 +146,7 @@ class HttpRequest
     /**
      * @param string $baseUri
      */
-    public function setBaseUri(string $baseUri) : void
+    public function setBaseUri(string $baseUri): void
     {
         $this->baseUri = $baseUri;
     }
