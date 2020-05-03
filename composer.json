@@ -17,11 +17,8 @@
     "guzzlehttp/guzzle": "^6"
   },
   "autoload": {
-    "classmap": [
-      "src/"
-    ],
     "psr-4": {
-      "EasyMVC\\HttpRequest\\": "src/"
+      "EasyMVC\\": "src/"
     }
   }
 }

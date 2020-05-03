@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyMVC\HttpRequest;
+namespace EasyMVC;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
