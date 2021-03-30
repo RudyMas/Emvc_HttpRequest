@@ -4,15 +4,14 @@ namespace EasyMVC;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Response;
 
 /**
- * Class HttpRequest (PHP version 7.2)
+ * Class HttpRequest (PHP version 5.6)
  *
  * @author Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright 2016-2020, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright 2016-2021, rmsoft.be. (http://www.rmsoft.be/)
  * @license https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version 1.5.1.0
+ * @version 5.6.1.0
  * @package EasyMVC
  */
 class HttpRequest
@@ -29,13 +28,13 @@ class HttpRequest
     }
 
     /**
-     * @param string $url
-     * @param string|null $username
-     * @param string|null $password
-     * @return Response
+     * @param $url
+     * @param null $username
+     * @param null $password
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws GuzzleException
      */
-    public function get(string $url, string $username = null, string $password = null): Response
+    public function get($url, $username = null, $password = null)
     {
         try {
             $response = $this->httpClient->request('GET', $this->baseUri . $url, [
@@ -48,15 +47,15 @@ class HttpRequest
     }
 
     /**
-     * @param string $url
-     * @param string $body
-     * @param string|null $username
-     * @param string|null $password
+     * @param $url
+     * @param $body
+     * @param null $username
+     * @param null $password
      * @param string $contentType
-     * @return Response
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws GuzzleException
      */
-    public function post(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
+    public function post($url, $body, $username = null, $password = null, $contentType = 'application/json')
     {
         try {
             $response = $this->httpClient->request('POST', $this->baseUri . $url, [
@@ -71,15 +70,15 @@ class HttpRequest
     }
 
     /**
-     * @param string $url
-     * @param string $body
-     * @param string|null $username
-     * @param string|null $password
+     * @param $url
+     * @param $body
+     * @param null $username
+     * @param null $password
      * @param string $contentType
-     * @return Response
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws GuzzleException
      */
-    public function put(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
+    public function put($url, $body, $username = null, $password = null, $contentType = 'application/json')
     {
         try {
             $response = $this->httpClient->request('PUT', $this->baseUri . $url, [
@@ -94,15 +93,15 @@ class HttpRequest
     }
 
     /**
-     * @param string $url
-     * @param string $body
-     * @param string|null $username
-     * @param string|null $password
+     * @param $url
+     * @param $body
+     * @param null $username
+     * @param null $password
      * @param string $contentType
-     * @return Response
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws GuzzleException
      */
-    public function patch(string $url, string $body, string $username = null, string $password = null, string $contentType = 'application/json'): Response
+    public function patch($url, $body, $username = null, $password = null, $contentType = 'application/json')
     {
         try {
             $response = $this->httpClient->request('PATH', $this->baseUri . $url, [
@@ -117,13 +116,13 @@ class HttpRequest
     }
 
     /**
-     * @param string $url
-     * @param string|null $username
-     * @param string|null $password
-     * @return Response
+     * @param $url
+     * @param null $username
+     * @param null $password
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws GuzzleException
      */
-    public function delete(string $url, string $username = null, string $password = null): Response
+    public function delete($url, $username = null, $password = null)
     {
         try {
             $response = $this->httpClient->request('DELETE', $this->baseUri . $url, [
@@ -138,7 +137,7 @@ class HttpRequest
     /**
      * @return string
      */
-    public function getBaseUri(): string
+    public function getBaseUri()
     {
         return $this->baseUri;
     }
@@ -146,7 +145,7 @@ class HttpRequest
     /**
      * @param string $baseUri
      */
-    public function setBaseUri(string $baseUri): void
+    public function setBaseUri($baseUri)
     {
         $this->baseUri = $baseUri;
     }
