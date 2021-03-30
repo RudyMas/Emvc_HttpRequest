@@ -7,12 +7,12 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 
 /**
- * Class HttpRequest (PHP version 7.2)
+ * Class HttpRequest (PHP version 7.0)
  *
  * @author Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright 2016-2021, rmsoft.be. (http://www.rmsoft.be/)
  * @license https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version 7.2.1.0
+ * @version 7.0.1.0
  * @package EasyMVC
  */
 class HttpRequest
